@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5f38aed9844e4b0c8e78caad3f866f13" Name="Diagram1">
+        <EntityTypeShape EntityType="MovieBank_DBModel.Directors" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MovieBank_DBModel.Genres" Width="1.5" PointX="8.25" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MovieBank_DBModel.Movies" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="MovieBank_DBModel.MovieGenres" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
+        <AssociationConnector Association="MovieBank_DBModel.FK_Movies_Directors" ManuallyRouted="false" />
+        <AssociationConnector Association="MovieBank_DBModel.FK_MovieGenres_Genres" ManuallyRouted="false" />
+        <AssociationConnector Association="MovieBank_DBModel.FK_MovieGenres_Movies" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

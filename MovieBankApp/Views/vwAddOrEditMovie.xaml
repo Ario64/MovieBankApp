@@ -1,0 +1,178 @@
+﻿<Window x:Class="MovieBankApp.Views.vwAddOrEditMovie"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MovieBankApp.Views"
+        mc:Ignorable="d"
+        Loaded="VwAddOrEditMovie_OnLoaded"
+        WindowStartupLocation="CenterOwner"
+        WindowStyle="None"
+        WindowState="Normal"
+        ShowInTaskbar="False"
+        ResizeMode="CanResizeWithGrip"
+        Title="vwAddOrEditMovie"
+        Height="650"
+        MinHeight="650"
+        Width="500"
+        MinWidth="500"
+        FlowDirection="RightToLeft">
+
+
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="DockPanel">
+                <Setter Property="Margin" Value="5"/>
+            </Style>
+
+            <Style TargetType="TextBox">
+                <Setter Property="Padding" Value="5"/>
+                <Setter Property="Margin" Value="5"/>
+            </Style>
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <Label
+                    Content="عنوان:"
+                    DockPanel.Dock="Left"/>
+            <TextBox
+                    Name="TxtTitle"
+                    Text="{Binding Path=Title}"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="0">
+            <Label
+                    Content="توضیحات مختصر:"
+                    DockPanel.Dock="Left"/>
+            <TextBox
+                    Name="TxtTagLine"
+                    Text="{Binding Path=TagLine}"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2">
+            <Label
+                    Content="کارگردان:"
+                    DockPanel.Dock="Left"/>
+            <ComboBox
+                    Name="CmbDirector"
+                    Margin="5"
+                    DisplayMemberPath="FullName"
+                    SelectedValuePath="DirectorId"
+                    SelectedValue="{Binding Path=DirectorId}"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="2">
+            <Label
+                    Content="سال ساخت:"
+                    DockPanel.Dock="Left"/>
+            <TextBox
+                    Name="TxtYear"
+                    Text="{Binding Path=Year}"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="4">
+            <Label
+                    Content="امتباز IMDB:"
+                    DockPanel.Dock="Left"/>
+            <TextBox
+                    Name="TxtIMDBRate"
+                    Text="{Binding Path=ImdbRate}"/>
+        </StackPanel>
+
+
+        <StackPanel
+            Grid.Row="5">
+            <Label
+                    Content="بازیگران:"/>
+            <TextBox
+                    Name="TxtCast"
+                    Text="{Binding Path=Cast}"
+                    Height="100"
+                    AcceptsReturn="True"/>
+        </StackPanel>
+        <StackPanel
+            Grid.Column="1"
+            Grid.Row="5">
+            <Label
+                    Content="توضیحات:"/>
+            <TextBox
+                    Name="TxtDescription"
+                    Text="{Binding Path=Description}"
+                    Height="100"
+                    AcceptsReturn="True"/>
+
+        </StackPanel>
+        <StackPanel Grid.ColumnSpan="2" Grid.Row="6">
+            <Label
+                    Content="تصویر:"/>
+
+            <Image 
+                        Name="ImgPoster"
+                        Height="150"
+                        Source="/Content/Images/POSTER-1-JAHAN-Final.jpg"/>
+            <DockPanel>
+
+                <Label 
+                        Name="TxtPosterName" 
+                        Margin="5"
+                        Content="{Binding Path=Poster}"
+                        DockPanel.Dock="Left" 
+                        Width="300"
+                        BorderThickness="1"
+                        BorderBrush="Gray"/>
+
+                <Button
+                        Name="BtnPoster"
+                        Width="80"
+                        Content="انتخاب"
+                        Foreground="Black"
+                        Background="LightGray"
+                        DockPanel.Dock="Right" 
+                        Margin="5"
+                        Click="BtnPoster_OnClick"/>
+            </DockPanel>
+        </StackPanel>
+
+        <DockPanel
+            Grid.ColumnSpan="2"
+            Grid.Row="8"
+            Height="30">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button
+                    Grid.Column="1"
+                    Margin="5"
+                    Name="BtnSave"
+                    Content="افزودن"
+                    Background="Green"
+                    Click="BtnSave_OnClick"/>
+
+                <Button
+                    Name="BtnCancel"
+                    Margin="5"
+                    Content="انصراف"
+                    Background="LightGray"
+                    Foreground="Black"
+                    Click="BtnCancel_OnClick"/>
+            </Grid>
+        </DockPanel>
+    </Grid>
+
+</Window>

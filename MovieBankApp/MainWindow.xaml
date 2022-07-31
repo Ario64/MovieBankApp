@@ -1,0 +1,351 @@
+﻿<Window x:Class="MovieBankApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:uc="clr-namespace:MovieBankApp.UserControls"
+        xmlns:local="clr-namespace:MovieBankApp" 
+        WindowStyle="None"
+        Background="LightBlue"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="650"
+        Width="900"
+        MinWidth="900"
+        MinHeight="650"
+        ResizeMode="CanResizeWithGrip"
+        FlowDirection="RightToLeft">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="150"/>
+        </Grid.RowDefinitions>
+
+        <Grid 
+        Background="{StaticResource BackgroundColorPrimary}">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="0.25*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button
+                Style="{StaticResource BtnCircleStyle}"
+                Name="BtnClose"
+                ToolTip="Close"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                Content="x"
+                Height="40"
+                Width="40"
+                Click="BtnClose_OnClick"/>
+
+            <Button 
+                Style="{StaticResource BtnCircleStyle}"
+                Name="BtnMinus"
+                ToolTip="Minimize"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                Grid.Column="1"
+                Content="_"
+                Height="40" 
+                Width="40"
+                Click="BtnMinus_OnClick"/>
+
+            <Rectangle 
+                Name="RecTop"
+                Grid.Column="2"
+                Fill="{StaticResource BackgroundColorSecondary}"
+                MouseDown="RecTop_OnMouseDown" Cursor="ScrollAll"/>
+
+            <TextBlock 
+                Grid.Column="3" 
+                Text="بانک اطلاعاتی فیلم من" 
+                Foreground="White"
+                FontSize="22"
+                Margin="5"
+                Padding="5"
+                Background="{StaticResource BackgroundColorPrimary}"/>
+
+            <Rectangle
+                Grid.Column="4"
+                Fill="{StaticResource BackgroundColorSecondary}"/>
+        </Grid>
+
+        <!--Background-->
+        <Image
+            Grid.Row="1"
+            Opacity="0.3" 
+            Stretch="UniformToFill"
+            Source="Content/Images/POSTER-1-JAHAN-Final.jpg"
+            HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+        <Rectangle
+            Grid.Row="1"
+            Fill="{StaticResource BackgroundColorPrimary}"
+            Opacity="0.3"/>
+
+        <!--Main Items-->
+        <Grid
+            Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <!--information of the movies-->
+            <Grid 
+                Grid.Column="0">
+                <Grid.Resources>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="FontFamily" Value="IranSense"/>
+                        <Setter Property="FontSize" Value="20"/>
+                        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="Padding" Value="5,5,0,7"/>
+                    </Style>
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="300"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="10"/>
+                </Grid.RowDefinitions>
+
+                <!--Title-->
+                <DockPanel
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Grid.Row="0">
+                    <Button
+                        DockPanel.Dock="Right" 
+                        Width="50" 
+                        Height="30"
+                        BorderBrush="Transparent"
+                        ToolTip="ویرایش"
+                        VerticalContentAlignment="Center"
+                        HorizontalContentAlignment="Center">
+                        <Button.Background>
+                            <ImageBrush
+                                ImageSource="Content/Icons/create-new-pencil-button.png"
+                                Stretch="Uniform"/>
+                        </Button.Background>
+
+                    </Button>
+                    <TextBlock
+                        Text="جهان با من برقص"
+                        FontSize="35"/>
+
+                </DockPanel>
+
+                <!--Name in English-->
+                <DockPanel
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Grid.Row="1">
+                    <TextBlock
+                        Text="Dance with me"/>
+
+                </DockPanel>
+
+                <!--Rate-->
+                <DockPanel
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Grid.Row="2">
+                    <Image Source="Content/Icons/rate-star-button.png" Width="20"/>
+                    <TextBlock
+                        Text="5.8"/>
+
+                </DockPanel>
+
+                <!--Date-->
+                <DockPanel
+                    Grid.Column="1"
+                    Grid.Row="2">
+                    <Image 
+                        Source="Content/Icons/connection-indicator.png"
+                        Width="20"/>
+                    <TextBlock
+                        Text="1400/12/11"/>
+
+                </DockPanel>
+
+                <!--Genre-->
+                <DockPanel
+                    Grid.Column="0"
+                    Grid.Row="3"
+                    Grid.ColumnSpan="2">
+                    <Image 
+                        Source="Content/Icons/clapperboard.png"
+                        Width="20"/>
+
+                    <TextBlock
+                        Text="اجتماعی, خانوادگی"/>
+
+                </DockPanel>
+
+                <!--Summary of the movie-->
+                <TextBlock Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2">خلاصه داستان</TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" TextWrapping="Wrap">
+                    دوستان علی برای آخرین تولد او دور هم جمع می شوند و می خواهند که در آخرین روزهای زندگی لحظات خوشی را تجربه کند...
+                </TextBlock>
+
+                <!--Cast Title-->
+                <DockPanel
+                    Grid.Column="0"
+                    Grid.Row="6">
+                    <Image 
+                        Source="Content/Icons/users-social-symbol.png"
+                        Width="20"/>
+                    <TextBlock
+                        Text="بازیگران"/>
+
+                </DockPanel>
+
+                <!--Director Title-->
+                <DockPanel
+                    Grid.Column="1"
+                    Grid.Row="6">
+                    <Image 
+                        Source="Content/Icons/user-shape.png"
+                        Width="20"/>
+                    <TextBlock
+                        Text="کارگردان"/>
+
+                </DockPanel>
+
+                <!--Cast name-->
+                <TextBlock Grid.Column="0" Grid.Row="7" TextWrapping="Wrap">
+                    مهراب قاسم خانی، رامین صدیقی، بهار کاتوزی، باوان افسر، شیوا بلوچی، مهناز پور بابایی، بهروز توکلی
+                </TextBlock>
+
+                <!--Director Name-->
+                <TextBlock Grid.Column="1" Grid.Row="7">
+                    سروش صحت
+                </TextBlock>
+
+                <DockPanel
+                    Grid.Column="0"
+                    Grid.Row="8" 
+                    Grid.ColumnSpan="2"
+                    HorizontalAlignment="Right"
+                    Margin="0,0,10,0">
+
+                    <Button 
+                        Style="{StaticResource BtnCircleStyle}"
+                        Name="BtnAddMovie"
+                        ToolTip="آضافه کردن"
+                        Width="30"
+                        Height="30"
+                        BorderBrush="Black"
+                        VerticalContentAlignment="Center"
+                        HorizontalContentAlignment="Center"
+                        Click="BtnAddMovie_OnClick">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Content/Icons/round-add-button.png"/>
+                        </Button.Background>
+                    </Button>
+
+                    <Button
+                        Style="{StaticResource BtnCircleStyle}"
+                        Name="BtnDeleteMovie"
+                        Width="30"
+                        Height="30"
+                        BorderBrush="Black"
+                        VerticalContentAlignment="Center"
+                        HorizontalContentAlignment="Center">
+                        <Button.Background>
+                            <ImageBrush
+                                ImageSource="Content/Icons/horizontal-line-remove-button.png"
+                                Stretch="Fill"/>
+                        </Button.Background>
+                    </Button>
+
+                </DockPanel>
+
+
+
+
+            </Grid>
+            <!--image of movie for main background-->
+            <Image
+                Grid.Column="1"
+                Source="Content/Images/POSTER-1-JAHAN-Final.jpg"
+                Stretch="Uniform"/>
+
+        </Grid>
+        <DockPanel Grid.Row="2" Margin="5">
+            <DockPanel.Resources>
+                <Style TargetType="Image">
+                    <Setter Property="Margin" Value="3"/>
+                </Style>
+            </DockPanel.Resources>
+
+            <RepeatButton 
+                Name="BtnMoveLeft"
+                Height="50"
+                Width="50"
+                DockPanel.Dock="Left"
+                Click="BtnMoveLeft_OnClick">
+                <RepeatButton.Background>
+                    <ImageBrush ImageSource="Content/Icons/keyboard-left-arrow-button.png" 
+                                Stretch="Uniform"/>
+                </RepeatButton.Background>
+            </RepeatButton>
+
+            <RepeatButton 
+                Name="BtnMoveRight"
+                Height="50"
+                Width="50"
+                DockPanel.Dock="Right"
+                Click="BtnMoveRight_OnClick">
+                <RepeatButton.Background>
+                    <ImageBrush ImageSource="Content/Icons/keyboard-right-arrow-button.png" 
+                                Stretch="Uniform"/>
+                </RepeatButton.Background>
+            </RepeatButton>
+
+            <ScrollViewer
+                      Name="ScrollViewerMovieList"
+                      Background="{StaticResource BackgroundColorSecondary}"
+                      CanContentScroll="False"
+                      SnapsToDevicePixels="True"
+                      VerticalScrollBarVisibility="Disabled"
+                      HorizontalScrollBarVisibility="Hidden">
+                <DockPanel
+                    Name="DpMovieList">
+                    <uc:ucImageBorder Source="Content/Images/POSTER-1-JAHAN-Final.jpg" Value="1"/>
+                    <uc:ucImageBorder Source="Content/Images/POSTER-1-JAHAN-Final.jpg" Value="2"/>
+                    <uc:ucImageBorder Source="Content/Images/POSTER-1-JAHAN-Final.jpg" Value="3"/>
+                    <uc:ucImageBorder Source="Content/Images/POSTER-1-JAHAN-Final.jpg" Value="4"/>
+                    <uc:ucImageBorder Source="Content/Images/POSTER-1-JAHAN-Final.jpg" Value="5"/>
+                    <uc:ucImageBorder Source="Content/Images/POSTER-1-JAHAN-Final.jpg" Value="6"/>
+                    <uc:ucImageBorder Source="Content/Images/POSTER-1-JAHAN-Final.jpg" Value="7"/>
+                    <uc:ucImageBorder Source="Content/Images/POSTER-1-JAHAN-Final.jpg" Value="8"/>
+
+                </DockPanel>
+
+            </ScrollViewer>
+
+        </DockPanel>
+    </Grid>
+
+</Window>
